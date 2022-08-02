@@ -42,7 +42,7 @@ public class CitaMedicaGestor implements ICitaMedicaGestor {
 		cita.setDoctor(doc);
 		cita.setPaciente(pac);
 		
-		this.citaMedicaService.inertar(cita);
+		this.citaMedicaService.insertar(cita);
 	}
 
 	@Override

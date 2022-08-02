@@ -4,7 +4,7 @@ import com.uce.edu.demo.repository.modelo.CitaMedica;
 
 public interface ICitaMedicaService {
 
-	public void inertar(CitaMedica citaMedica);
+	public void insertar(CitaMedica citaMedica);
 	
 	public void actualizar(CitaMedica citaMedica);
 	

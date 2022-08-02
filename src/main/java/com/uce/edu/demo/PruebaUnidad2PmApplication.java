@@ -2,6 +2,7 @@ package com.uce.edu.demo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import com.uce.edu.demo.repository.ICitaMedicaRepository;
 import com.uce.edu.demo.repository.modelo.CitaMedica;
 import com.uce.edu.demo.repository.modelo.Doctor;
 import com.uce.edu.demo.repository.modelo.Paciente;
+import com.uce.edu.demo.repository.modelo.PacienteSencillo;
 import com.uce.edu.demo.service.ICitaMedicaGestor;
 import com.uce.edu.demo.service.IDoctorService;
 import com.uce.edu.demo.service.IPacienteService;
@@ -38,6 +40,7 @@ public class PruebaUnidad2PmApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
+		/*
 		Doctor d1 = new Doctor();
 		d1.setNombre("Paul");
 		d1.setApellido("Merizalde");
@@ -86,7 +89,14 @@ public class PruebaUnidad2PmApplication implements CommandLineRunner {
 		
 		this.citaMedicaGestor.agendamientoCitaMedica("1", LocalDateTime.now(), new BigDecimal(40), "Inca", "12", "14");
 		
-		//this.citaMedicaGestor.actualizacionCitaMedica("1", "covid", "paracetamol", LocalDateTime.now());
+		this.citaMedicaGestor.actualizacionCitaMedica("1", "covid", "paracetamol", LocalDateTime.now());
+		
+		*/
+		
+		List<PacienteSencillo> lista = this.pacienteService.buscar(LocalDateTime.of(2022,8,1,20,16,53), "M");
+		for (PacienteSencillo i: lista) {
+			LOG.info(i);
+		}
 	}
 
 }

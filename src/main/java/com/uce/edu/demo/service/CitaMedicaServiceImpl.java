@@ -13,7 +13,7 @@ public class CitaMedicaServiceImpl implements ICitaMedicaService {
 	private ICitaMedicaRepository citaMedicaRepository;
 
 	@Override
-	public void inertar(CitaMedica citaMedica) {
+	public void insertar(CitaMedica citaMedica) {
 		this.citaMedicaRepository.insertar(citaMedica);
 	}
 
