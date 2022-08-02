@@ -1,5 +1,6 @@
 package com.uce.edu.demo.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -40,8 +41,12 @@ public class PacienteRepositoryImpl implements IPacienteRepository {
 	}
 
 	@Override
-	public List<PacienteSencillo> buscar() {
-		return null;
+	public List<PacienteSencillo> buscar(LocalDateTime fecha, String genero) {
+		Query jpqlQuery = this.entityManager.createQuery(
+				"SELECT NEW com.uce.edu.demo.repository.modelo.PacienteSencillo (p.cedula, p.nombre, p.fechaNacimiento, p.genero)FROM Paciente p WHERE p.fechaNacimiento > :datoFecha AND p.genero = :datoGenero");
+		jpqlQuery.setParameter("datoFecha", fecha);
+		jpqlQuery.setParameter("datoGenero", genero);
+		return jpqlQuery.getResultList();
 	}
 
 	@Override
@@ -49,7 +54,6 @@ public class PacienteRepositoryImpl implements IPacienteRepository {
 		Query jpqlQuery = this.entityManager.createQuery("SELECT p FROM Paciente p WHERE p.cedula = :datoCedula");
 		jpqlQuery.setParameter("datoCedula", cedula);
 		return (Paciente) jpqlQuery.getSingleResult();
-
 	}
 
 }

@@ -47,7 +47,7 @@ public class Paciente {
 	private String genero;
 
 	@OneToMany(mappedBy = "paciente")
-	private List<CitaMedica> citasMedicas;
+	private List<CitaMedica> citas;
 
 	// SET y GET
 	public Integer getId() {
@@ -122,12 +122,13 @@ public class Paciente {
 		this.genero = genero;
 	}
 
-	public List<CitaMedica> getCitasMedicas() {
-		return citasMedicas;
+	public List<CitaMedica> getCitas() {
+		return citas;
 	}
 
-	public void setCitasMedicas(List<CitaMedica> citasMedicas) {
-		this.citasMedicas = citasMedicas;
+	public void setCitas(List<CitaMedica> citas) {
+		this.citas = citas;
 	}
+
 
 }

@@ -32,8 +32,8 @@ public class CitaMedicaGestor implements ICitaMedicaGestor {
 
 		cita.setNumeroCita(numeroCita);
 		cita.setFechaCita(fechaCita);
-		cita.setValorCita(valorCita);
-		cita.setLugarCita(lugarCita);
+		cita.setValor(valorCita);
+		cita.setLugar(lugarCita);
 
 		Doctor doc = this.doctorRepository.buscarCedula(cedulaDoc);
 		
@@ -51,7 +51,7 @@ public class CitaMedicaGestor implements ICitaMedicaGestor {
 		CitaMedica cita = this.citaMedicaService.buscar(numeroCita);
 		cita.setDiagnostico(diagnostico);
 		cita.setReceta(receta);
-		cita.setProximaCita(fechaProxima);
+		cita.setFechaProximaCita(fechaProxima);
 		
 		this.citaMedicaService.actualizar(cita);
 		

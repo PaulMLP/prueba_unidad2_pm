@@ -1,5 +1,6 @@
 package com.uce.edu.demo;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.apache.log4j.Logger;
@@ -36,6 +37,7 @@ public class PruebaUnidad2PmApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
 		Doctor d1 = new Doctor();
 		d1.setNombre("Paul");
 		d1.setApellido("Merizalde");
@@ -58,16 +60,33 @@ public class PruebaUnidad2PmApplication implements CommandLineRunner {
 		this.doctorService.insertar(d2);
 		
 		Paciente p1 =new Paciente();
-		p1.setCedula("13");
+		p1.setNombre("Juanito");
+		p1.setApellido("Alimania");
+		p1.setCedula("14");
+		p1.setCodigoSeguro("21");
+		p1.setEstatura(1.70);
+		p1.setPeso(85.5);
+		p1.setFechaNacimiento(LocalDateTime.now());
+		p1.setGenero("M");
 		
 		Paciente p2 =new Paciente();
+		p2.setNombre("Daniela");
+		p2.setApellido("Teran");
 		p2.setCedula("15");
+		p2.setCodigoSeguro("19");
+		p2.setEstatura(1.60);
+		p2.setPeso(50.5);
+		p2.setFechaNacimiento(LocalDateTime.now());
+		p2.setGenero("F");
 		
 		this.pacienteService.insertar(p1);
 		this.pacienteService.insertar(p2);
 		
-		this.citaMedicaGestor.agendamientoCitaMedica("1", LocalDateTime.now(), null, null, null, null);
-		this.citaMedicaGestor.actualizacionCitaMedica("1", null, null, null);
+		
+		
+		this.citaMedicaGestor.agendamientoCitaMedica("1", LocalDateTime.now(), new BigDecimal(40), "Inca", "12", "14");
+		
+		//this.citaMedicaGestor.actualizacionCitaMedica("1", "covid", "paracetamol", LocalDateTime.now());
 	}
 
 }

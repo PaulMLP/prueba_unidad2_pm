@@ -30,10 +30,10 @@ public class CitaMedica {
 	private LocalDateTime fechaCita;
 
 	@Column(name = "cita_valor_cita")
-	private BigDecimal valorCita;
+	private BigDecimal valor;
 
 	@Column(name = "cita_lugar_cita")
-	private String lugarCita;
+	private String lugar;
 
 	@Column(name = "cita_diagnostico")
 	private String diagnostico;
@@ -42,7 +42,7 @@ public class CitaMedica {
 	private String receta;
 
 	@Column(name = "cita_proxima_cita")
-	private LocalDateTime proximaCita;
+	private LocalDateTime fechaProximaCita;
 
 	@ManyToOne
 	@JoinColumn(name = "cita_paci_id")
@@ -77,20 +77,28 @@ public class CitaMedica {
 		this.fechaCita = fechaCita;
 	}
 
-	public BigDecimal getValorCita() {
-		return valorCita;
+	public BigDecimal getValor() {
+		return valor;
 	}
 
-	public void setValorCita(BigDecimal valorCita) {
-		this.valorCita = valorCita;
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
 	}
 
-	public String getLugarCita() {
-		return lugarCita;
+	public String getLugar() {
+		return lugar;
 	}
 
-	public void setLugarCita(String lugarCita) {
-		this.lugarCita = lugarCita;
+	public void setLugar(String lugar) {
+		this.lugar = lugar;
+	}
+
+	public LocalDateTime getFechaProximaCita() {
+		return fechaProximaCita;
+	}
+
+	public void setFechaProximaCita(LocalDateTime fechaProximaCita) {
+		this.fechaProximaCita = fechaProximaCita;
 	}
 
 	public String getDiagnostico() {
@@ -109,13 +117,6 @@ public class CitaMedica {
 		this.receta = receta;
 	}
 
-	public LocalDateTime getProximaCita() {
-		return proximaCita;
-	}
-
-	public void setProximaCita(LocalDateTime proximaCita) {
-		this.proximaCita = proximaCita;
-	}
 
 	public Paciente getPaciente() {
 		return paciente;

@@ -1,5 +1,6 @@
 package com.uce.edu.demo.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.uce.edu.demo.repository.modelo.Paciente;
@@ -15,7 +16,7 @@ public interface IPacienteRepository {
 
 	public void eliminar(Integer id);
 	
-	public List<PacienteSencillo> buscar();
+	public List<PacienteSencillo> buscar(LocalDateTime fecha, String genero);
 	
 	public Paciente buscarCedula(String cedula);
 }

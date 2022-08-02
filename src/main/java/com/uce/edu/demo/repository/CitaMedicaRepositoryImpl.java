@@ -25,7 +25,7 @@ public class CitaMedicaRepositoryImpl implements ICitaMedicaRepository {
 	@Override
 	public void actualizar(CitaMedica citaMedica) {
 		Query myQuery = this.entityManager.createQuery(
-				"UPDATE CitaMedica c SET c.diagnostico = :datoDiagnostico, c.receta = :datoReceta, c.proximaCita = :datoFecha WHERE c.numeroCita = :datoNumero");
+				"UPDATE CitaMedica c SET c.diagnostico = :datoDiagnostico, c.receta = :datoReceta, c.fechaProximaCita = :datoFecha WHERE c.numeroCita = :datoNumero");
 		myQuery.setParameter("datoDiagnostico", citaMedica.getDiagnostico());
 		myQuery.setParameter("datoReceta", citaMedica.getReceta());
 		myQuery.setParameter("datoFecha", citaMedica.getFechaCita());
